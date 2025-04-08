@@ -24,13 +24,13 @@ export default function DessertCard({
   thumb_image,
 }: DessertCardProps): JSX.Element {
   return (
-    <div className="bg-transparent relative flex flex-col justify-content border-none h-fit  ">
+    <div className="group bg-transparent relative flex flex-col justify-content border-none h-fit">
       <Image
         src={d_image}
         width={200}
         height={200}
         alt={`${name} image`}
-        className="w-full rounded-xl border-[2px] hover:border-[var(--red)]"
+        className="w-full rounded-xl border-[2px] group-hover:border-[var(--red)] transition ease-in-out duration-300"
       />
       <div className="text-black flex flex-col justify-start items-start pt-[2.5rem]">
         <h1 className="text-[0.9rem] text-[var(--rose-400)]">{name}</h1>

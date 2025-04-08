@@ -1,8 +1,5 @@
-import AddToCartButton from "./components/AddToCartButton";
-import DessertCard from "./components/DessertCard";
 import DessertList from "./components/DessertList";
 import Footer from "./components/Footer";
-import { desserts } from "./data/DessertsData";
 
 export default function Home() {
   return (

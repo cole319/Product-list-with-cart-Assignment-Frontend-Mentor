@@ -1,5 +1,5 @@
 "use client";
-import React, { JSX, useState } from "react";
+import React, { JSX, useState, useEffect } from "react";
 
 // internal imports
 
@@ -19,7 +19,7 @@ interface AddToCartButtonProps {
 
 const styles = {
   addToCartButtonStyles:
-    "bg-[var(--rose-50)] flex justify-between items-center gap-[0.3rem] text-[var(--rose-900)] border-[1px] border-rounded border-[var(--rose-500)] px-[1.8rem] py-[0.8rem] rounded-full w-full cursor-pointer",
+    "bg-[var(--rose-50)] flex justify-between items-center gap-[0.3rem] text-[var(--rose-900)] border-[1px] border-rounded border-[var(--rose-500)] px-[1.8rem] py-[0.8rem] rounded-full w-full cursor-pointer hover:bg-[var(--rose-100)] transition ease-in-out duration-300",
 
   incrementButtonStyles:
     "border-[1px] border-[var(--rose-50)] rounded-full w-[1.2rem] h-[1.2rem] p-[0.2rem] flex justify-center items-center cursor-pointer",
@@ -31,12 +31,13 @@ const styles = {
 // FC
 export default function AddToCartButton(): JSX.Element {
   const [quantity, setQuantity] = useState(0);
+  useEffect;
 
-  const handleIncrement = (quantity: number) => {
-    setQuantity(quantity + 1);
+  const handleIncrement = (q: number) => {
+    setQuantity(q + 1);
   };
-  const handleDecrement = (quantity: number) => {
-    setQuantity(quantity - 1);
+  const handleDecrement = (q: number) => {
+    setQuantity(Math.max(0, q - 1));
   };
 
   return (
