@@ -8,6 +8,7 @@ export default function DessertList(): JSX.Element {
       {desserts.map((dessert) => (
         <div key={dessert.id}>
           <DessertCard
+            id={dessert.id}
             name={dessert.name}
             description={dessert.description}
             price={dessert.price}

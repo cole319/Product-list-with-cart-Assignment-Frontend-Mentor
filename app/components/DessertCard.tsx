@@ -5,6 +5,7 @@ import Image from "next/image";
 import AddToCartButton from "./AddToCartButton";
 
 interface DessertCardProps {
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -15,6 +16,7 @@ interface DessertCardProps {
 }
 
 export default function DessertCard({
+  id,
   name,
   description,
   price,
@@ -41,7 +43,7 @@ export default function DessertCard({
         </p>
       </div>
       <div className="absolute w-[60%] left-[20%] right-[20%] top-[60%]">
-        <AddToCartButton />
+        <AddToCartButton productId={id} />
       </div>
     </div>
   );
