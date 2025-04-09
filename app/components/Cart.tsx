@@ -75,7 +75,7 @@ export default function Cart(): JSX.Element {
               </div>
             </div>
 
-            <div className="flex justify-center items-center text-[0.8rem] gap-[0.4rem] py-[0.9rem] px-[1rem] bg-[var(--rose-100)] rounded-xl">
+            <div className="flex justify-center items-center text-[0.8rem] gap-[0.4rem] py-[0.9rem] px-[1rem] bg-[var(--rose-50)] rounded-xl">
               <CarbonNeutralIcon />
               <p className="text-[var(--rose-900)] font-medium">
                 This is a <span className="font-bold">carbon-neutral</span>{" "}
