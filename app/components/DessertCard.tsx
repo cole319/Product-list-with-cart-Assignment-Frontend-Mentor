@@ -39,7 +39,7 @@ export default function DessertCard({
         <p className="text-[var(--rose-900)] font-bold">{description}</p>
         <p className="text-[var(--red)] font-semibold">
           <span>$</span>
-          {price}
+          {price.toFixed(2)}
         </p>
       </div>
       <div className="absolute w-[60%] left-[20%] right-[20%] top-[60%]">

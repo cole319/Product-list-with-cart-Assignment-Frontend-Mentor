@@ -23,14 +23,14 @@ interface AddToCartButtonProps {
 
 const styles = {
   addToCartButtonStyles:
-    "bg-[var(--rose-50)] flex justify-between items-center gap-[0.3rem] text-[var(--rose-900)] border-[1px] border-rounded border-[var(--rose-500)] px-[1.8rem] py-[0.8rem] rounded-full w-full cursor-pointer hover:bg-[var(--rose-100)] transition ease-in-out duration-300",
+    "bg-[var(--rose-50)] flex justify-between items-center gap-[0.1rem] text-[var(--rose-900)] border-[1px] border-[var(--rose-500)] px-[1.8rem] py-[0.6rem] rounded-full w-full cursor-pointer hover:bg-[var(--rose-100)] transition ease-in-out duration-300",
 
   incDecButtonStyles:
     "border-[1px] border-[var(--rose-50)] rounded-full w-[1.2rem] h-[1.2rem] p-[0.2rem] flex justify-center items-center cursor-pointer",
 
-  buttonText: "font-semibold text-[0.8rem]",
+  buttonText: "font-semibold text-[0.7rem]",
 
-  cartIcon: "w-[0.8rem]",
+  cartIcon: "w-fit",
 };
 
 function usePersistentQuantity(key: string, initialValue: number) {
