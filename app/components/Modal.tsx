@@ -21,12 +21,6 @@ export default function Modal() {
   };
 
   return (
-    // <div
-    //   className={`fixed inset-0 z-50 bg-black/50 flex justify-center items-center ${
-    //     open ? "flex" : "hidden"
-    //   }`}
-    // >
-    // <div className="w-[30%] max-h-[80vh] overflow-y-auto bg-[var(--rose-50)] p-[2rem] text-[var(--rose-900)] rounded-xl flex flex-col justify-center">
     <div className="w-full max-w-md bg-[var(--rose-50)] rounded-xl p-6 overflow-y-auto max-h-[90vh] text-[var(--rose-900)]">
       <ConfirmationIcon />
       <h1 className="text-[2rem] font-extrabold pt-[1rem]">Order Confirmed</h1>

@@ -43,8 +43,6 @@ export default function AddToCartButton({
   const item = cart.find((i) => i.id === productId);
   const quantity = item?.quantity || 0;
 
-  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-
   return (
     <>
       {!(quantity === 0) && (
@@ -84,76 +82,3 @@ export default function AddToCartButton({
     </>
   );
 }
-
-/*
-  const handleIncrement = (q: number) => {
-    setQuantity(q + 1);
-  };
-  const handleDecrement = (q: number) => {
-    setQuantity(Math.max(0, q - 1));
-  };
-  */
-
-// interface AddToCartButtonProps {
-//   handleIncrement: (q: number) => void;
-//   handleDecrement: (q: number) => void;
-//   onClick: () => void;
-// }
-
-// const orderTotal = cart.reduce(
-//   (sum, item) => sum + item.price * item.quantity,
-//   0
-// );
-
-// const handleIncrement = () => {
-//   setQuantity((q) => q + 1);
-// };
-// const handleDecrement = () => {
-//   setQuantity((q) => Math.max(0, q - 1));
-// };
-
-// const handleQuantity = () => {
-//   const item = cart.find((i) => i.id === productId);
-//   const itemCount = item?.quantity;
-//   if (typeof itemCount !== undefined) {
-//     setItemCount((itemCount) => itemCount);
-//   } else {
-//     setItemCount(0);
-//   }
-// };
-
-// const [itemCount, setItemCount] = useState(0);
-// const [quantity, setQuantity] = usePersistentQuantity(productId, itemCount);
-
-// function usePersistentQuantity(key: string, initialValue: number) {
-//   const [quantity, setQuantity] = useState<number>(initialValue);
-
-//   useEffect(() => {
-//     const stored = localStorage.getItem(key);
-//     if (stored) setQuantity(parseInt(stored));
-//   }, [key]);
-
-//   useEffect(() => {
-//     localStorage.setItem(key, quantity.toString());
-//   }, [key, quantity]);
-
-//   return [quantity, setQuantity] as const;
-// }
-// const handleAdd = () => {
-//   addToCart({ id: productId, name: name, price: price });
-//   // handleQuantity();
-// };
-
-// const handleRemove = () => {
-//   removeFromCart({ id: productId, name: name, price: price });
-//   // handleQuantity();
-// };
-
-// onClick={() => handleDecrement(quantity)}
-// onClick={handleRemove}
-
-// onClick={() => handleIncrement(quantity)}
-// onClick={handleAdd}
-
-// onClick={() => handleIncrement(quantity)}
-// onClick={handleIncrement}

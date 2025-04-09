@@ -4,7 +4,7 @@ import DessertCard from "./DessertCard";
 
 export default function DessertList(): JSX.Element {
   return (
-    <div className="grid max-sm:grid-cols-1 sm:max-md:grid-cols-2 md:grid-cols-3 gap-[1.5rem]">
+    <div className="grid max-sm:grid-cols-1 sm:max-lg:grid-cols-2 lg:grid-cols-3 gap-[1.5rem]">
       {desserts.map((dessert) => (
         <div key={dessert.id}>
           <DessertCard

@@ -90,20 +90,3 @@ export function useCart() {
   if (!context) throw new Error("useCart must be used within CartProvider");
   return context;
 }
-
-//  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-//   const orderTotal = cart.reduce(
-//     (sum, item) => sum + item.price * item.quantity,
-//     0
-//   );
-
-// setCart((prevCart) => {
-//   const existingItem = prevCart.find((i) => i.id === item.id);
-//   if (existingItem) {
-//     return prevCart.map((i) =>
-//       i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i
-//     );
-//   } else {
-//     return [...prevCart, { ...item, quantity: 0 }];
-//   }
-// });

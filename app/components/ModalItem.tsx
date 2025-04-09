@@ -16,7 +16,7 @@ export default function ModalItem({
   const res: number = getTotal(price, quantity);
 
   return (
-    <div className="flex items-center bg-[var(--rose-100)] border-b-[1px] border-[var(--rose-300)]/20 h-">
+    <div className="flex items-center bg-[var(--rose-100)] border-b-[1px] border-[var(--rose-300)]/20 px-[0.4rem]">
       <div className="w-[20%] py-[0.6rem] flex justify-center">
         <Image
           src={thumb_image}

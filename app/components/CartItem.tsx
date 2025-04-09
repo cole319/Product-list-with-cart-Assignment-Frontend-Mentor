@@ -4,10 +4,6 @@ import { useCart } from "@/app/context/CartContext";
 //internal imports
 import { CartItemType } from "../types/CartItemType";
 
-interface CartItemProps {
-  onClick: () => void;
-}
-
 export default function CartItem({
   id,
   name,
@@ -16,7 +12,8 @@ export default function CartItem({
   thumb_image,
 }: CartItemType): JSX.Element {
   //Calculate total price of single product category
-  const { cart, removeOrder } = useCart();
+
+  const { removeOrder } = useCart();
 
   function getTotal(price: number, quantity: number): number {
     return parseFloat((price * quantity).toFixed(2));

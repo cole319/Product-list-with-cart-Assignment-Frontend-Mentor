@@ -90,16 +90,3 @@ export default function Cart(): JSX.Element {
     </div>
   );
 }
-
-// interface CartProps {
-//   onClick: () => CartItemType[];
-// }
-
-// const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-// const orderTotal = cart.reduce(
-//   (sum, item) => sum + item.price * item.quantity,
-//   0
-// );
-
-// const [cart, setCart] = useState<CartItemType[]>([]);
-// const [totalQuantity, setTotalQuantity] = useState<number>(0);
