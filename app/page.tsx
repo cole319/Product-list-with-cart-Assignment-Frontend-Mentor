@@ -19,9 +19,9 @@ export default function Home() {
     <main
       className={`relative flex flex-col min-h-screen bg-[var(--rose-100)] font-[var(--font-display)]`}
     >
-      <div className="absolute z-2 h-full">
+      {/* <div className="absolute z-2 h-full">
         <Modal />
-      </div>
+      </div> */}
 
       <div className="flex p-[1rem] md:p-[2rem] lg:py-[8rem] lg:px-[8rem] items-start">
         <section className="flex flex-col w-70%]">
@@ -35,7 +35,7 @@ export default function Home() {
         </section>
 
         <section className="pl-[2rem] flex justify-center items-center w-[30%]">
-          <Cart quantity={0} />
+          <Cart />
         </section>
       </div>
 

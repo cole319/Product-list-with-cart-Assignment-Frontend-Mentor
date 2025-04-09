@@ -1,5 +1,6 @@
 "use client";
-import React, { JSX, useState } from "react";
+import React, { JSX, useState, useMemo } from "react";
+import { useCart } from "@/app/context/CartContext";
 
 //internal imports
 import EmptyCartImage from "@/public/assets/images/illustration-empty-cart.svg";
@@ -7,13 +8,20 @@ import CarbonNeutralIcon from "@/public/assets/images/icon-carbon-neutral.svg";
 import Button from "./Button";
 import CartItem from "./CartItem";
 
-interface CartProps {
-  quantity: number;
-}
+//Types
+import { CartItemType } from "../types/CartItemType";
 
-export default function Cart({ quantity }: CartProps): JSX.Element {
-  const [totalQuantity, setTotalQuantity] = useState<number>(2);
-  const [orderTotal, setOrderTotal] = useState<number>(0);
+export default function Cart(): JSX.Element {
+  const { cart } = useCart();
+
+  const totalQuantity = useMemo(
+    () => cart.reduce((sum, item) => sum + item.quantity, 0),
+    [cart]
+  );
+  const orderTotal = useMemo(
+    () => cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    [cart]
+  );
 
   return (
     <div className="bg-[var(--rose-50)] w-full h-fit text-[var(--red)] p-[1.5rem] rounded-xl flex flex-col justify-center gap-[1rem]">
@@ -39,15 +47,25 @@ export default function Cart({ quantity }: CartProps): JSX.Element {
       {/* From this section upto the button will only be visible when totalQuantity > 0 */}
       {totalQuantity > 0 && (
         <section className="flex flex-col justify-center gap-[1rem]">
-          <section>
-            <CartItem id="1" name="Name" price={5.6} quantity={2} />
-          </section>
+          <div>
+            {/* <CartItem id="1" name="Name" price={5.6} quantity={2} /> */}
+            {cart.map((cartItem) => (
+              <div key={cartItem.id}>
+                <CartItem
+                  id={cartItem.id}
+                  name={cartItem.name}
+                  price={cartItem.price}
+                  quantity={cartItem.quantity}
+                />
+              </div>
+            ))}
+          </div>
 
-          <section>
+          <div>
             <div className="flex justify-between items-center px-[0.8rem] pb-[1rem]">
-              <h1 className="text-[var(--rose-900)] text-[0.9rem] font-medium">
+              <h2 className="text-[var(--rose-900)] text-[0.9rem] font-medium">
                 Order Total
-              </h1>
+              </h2>
               <div className="flex justify-center items-center text-[1.5rem] text-[var(--rose-900)] font-bold">
                 <span>$</span>
                 <span>{orderTotal.toFixed(2)}</span>
@@ -61,7 +79,7 @@ export default function Cart({ quantity }: CartProps): JSX.Element {
                 delivery
               </p>
             </div>
-          </section>
+          </div>
 
           <Button buttonName="Confirm Order" />
         </section>
@@ -69,3 +87,16 @@ export default function Cart({ quantity }: CartProps): JSX.Element {
     </div>
   );
 }
+
+// interface CartProps {
+//   onClick: () => CartItemType[];
+// }
+
+// const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+// const orderTotal = cart.reduce(
+//   (sum, item) => sum + item.price * item.quantity,
+//   0
+// );
+
+// const [cart, setCart] = useState<CartItemType[]>([]);
+// const [totalQuantity, setTotalQuantity] = useState<number>(0);

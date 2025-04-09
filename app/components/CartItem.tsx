@@ -1,8 +1,12 @@
 import React, { JSX } from "react";
+import { useCart } from "@/app/context/CartContext";
 
 //internal imports
 import { CartItemType } from "../types/CartItemType";
-// import RemoveItemIcon from "@/public/assets/images/icon-remove-item.svg";
+
+interface CartItemProps {
+  onClick: () => void;
+}
 
 export default function CartItem({
   id,
@@ -11,6 +15,7 @@ export default function CartItem({
   quantity,
 }: CartItemType): JSX.Element {
   //Calculate total price of single product category
+  const { cart, removeOrder } = useCart();
 
   function getTotal(price: number, quantity: number): number {
     return parseFloat((price * quantity).toFixed(2));
@@ -34,9 +39,12 @@ export default function CartItem({
           </div>
         </div>
       </div>
-      <div className="h-[1.2rem] w-[1.2rem] border-[1.5px] rounded-full flex justify-center items-center text-[var(--rose-300)] border-[var(--rose-300)] hover:cursor-pointer hover:border-[var(--red)] hover:text-[var(--red)]">
-        {/* <RemoveItemIcon /> */}X
-      </div>
+      <button
+        className="h-[1.2rem] w-[1.2rem] border-[1.5px] rounded-full flex justify-center items-center text-[var(--rose-300)] border-[var(--rose-300)] hover:cursor-pointer hover:border-[var(--red)] hover:text-[var(--red)]"
+        onClick={() => removeOrder({ id: id, name, price })}
+      >
+        X
+      </button>
     </div>
   );
 }
