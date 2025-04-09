@@ -43,7 +43,12 @@ export default function DessertCard({
         </p>
       </div>
       <div className="absolute w-[60%] left-[20%] right-[20%] top-[60%]">
-        <AddToCartButton productId={id} name={name} price={price} />
+        <AddToCartButton
+          productId={id}
+          name={name}
+          price={price}
+          thumb_image={thumb_image}
+        />
       </div>
     </div>
   );

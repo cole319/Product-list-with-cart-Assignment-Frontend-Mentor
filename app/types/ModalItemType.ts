@@ -3,5 +3,5 @@ export interface ModalItemType {
   name: string;
   price: number;
   quantity: number;
-  thumbnail: string;
+  thumb_image: string;
 }

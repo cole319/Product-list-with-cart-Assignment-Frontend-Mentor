@@ -28,6 +28,7 @@ interface AddToCartButtonProps {
   productId: string;
   name: string;
   price: number;
+  thumb_image: string;
 }
 
 // FC
@@ -35,6 +36,7 @@ export default function AddToCartButton({
   productId,
   name,
   price,
+  thumb_image,
 }: AddToCartButtonProps): JSX.Element {
   const { cart, addToCart, removeFromCart } = useCart();
 
@@ -49,7 +51,9 @@ export default function AddToCartButton({
         <div className="bg-[var(--red)] flex justify-between items-center w-full px-[1rem] py-[0.6rem] rounded-full">
           <button
             className={styles.incDecButtonStyles}
-            onClick={() => removeFromCart({ id: productId, name, price })}
+            onClick={() =>
+              removeFromCart({ id: productId, name, price, thumb_image })
+            }
           >
             <Decrement />
           </button>
@@ -57,7 +61,9 @@ export default function AddToCartButton({
 
           <button
             className={styles.incDecButtonStyles}
-            onClick={() => addToCart({ id: productId, name, price })}
+            onClick={() =>
+              addToCart({ id: productId, name, price, thumb_image })
+            }
           >
             <Increment />
           </button>
@@ -67,7 +73,7 @@ export default function AddToCartButton({
       {quantity === 0 && (
         <button
           className={styles.addToCartButtonStyles}
-          onClick={() => addToCart({ id: productId, name, price })}
+          onClick={() => addToCart({ id: productId, name, price, thumb_image })}
         >
           <span className={styles.cartIcon}>
             <CartIcon />

@@ -13,6 +13,7 @@ export default function CartItem({
   name,
   price,
   quantity,
+  thumb_image,
 }: CartItemType): JSX.Element {
   //Calculate total price of single product category
   const { cart, removeOrder } = useCart();
@@ -41,7 +42,7 @@ export default function CartItem({
       </div>
       <button
         className="h-[1.2rem] w-[1.2rem] border-[1.5px] rounded-full flex justify-center items-center text-[var(--rose-300)] border-[var(--rose-300)] hover:cursor-pointer hover:border-[var(--red)] hover:text-[var(--red)]"
-        onClick={() => removeOrder({ id: id, name, price })}
+        onClick={() => removeOrder({ id: id, name, price, thumb_image })}
       >
         X
       </button>

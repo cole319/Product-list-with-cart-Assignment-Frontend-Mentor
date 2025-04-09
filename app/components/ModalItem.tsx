@@ -7,7 +7,7 @@ export default function ModalItem({
   name,
   price,
   quantity,
-  thumbnail,
+  thumb_image,
 }: ModalItemType): JSX.Element {
   function getTotal(price: number, quantity: number): number {
     return parseFloat((price * quantity).toFixed(2));
@@ -19,7 +19,7 @@ export default function ModalItem({
     <div className="flex items-center bg-[var(--rose-100)] border-b-[1px] border-[var(--rose-300)]/20 h-">
       <div className="w-[20%] py-[0.6rem] flex justify-center">
         <Image
-          src={thumbnail}
+          src={thumb_image}
           width={50}
           height={50}
           alt={`${name} image`}

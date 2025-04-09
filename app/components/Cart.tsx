@@ -1,6 +1,7 @@
 "use client";
-import React, { JSX, useState, useMemo } from "react";
+import React, { JSX, useMemo } from "react";
 import { useCart } from "@/app/context/CartContext";
+import { useModal } from "../context/ModalContext";
 
 //internal imports
 import EmptyCartImage from "@/public/assets/images/illustration-empty-cart.svg";
@@ -9,10 +10,11 @@ import Button from "./Button";
 import CartItem from "./CartItem";
 
 //Types
-import { CartItemType } from "../types/CartItemType";
+// import { CartItemType } from "../types/CartItemType";
 
 export default function Cart(): JSX.Element {
   const { cart } = useCart();
+  const { open, setOpen } = useModal();
 
   const totalQuantity = useMemo(
     () => cart.reduce((sum, item) => sum + item.quantity, 0),
@@ -56,6 +58,7 @@ export default function Cart(): JSX.Element {
                   name={cartItem.name}
                   price={cartItem.price}
                   quantity={cartItem.quantity}
+                  thumb_image={cartItem.thumb_image}
                 />
               </div>
             ))}
@@ -81,7 +84,7 @@ export default function Cart(): JSX.Element {
             </div>
           </div>
 
-          <Button buttonName="Confirm Order" />
+          <Button buttonName="Confirm Order" onClick={() => setOpen(true)} />
         </section>
       )}
     </div>
